@@ -35,6 +35,12 @@ def text_to_csv():
                     break
                 iter += 1
 
+def explore_df(df: pd.DataFrame):
+    print(df.info(), '\n',
+    df.describe(), '\n',
+    df.columns, '\n',
+    df.head(10), '\n',
+    )
 
 if __name__ == '__main__':
     pass
