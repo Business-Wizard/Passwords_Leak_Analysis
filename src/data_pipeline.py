@@ -95,7 +95,7 @@ def to_csv(df, filename: str='../data/data.csv'):
     if isinstance(df, dd.core.DataFrame):
         df.to_csv(filename, single_file=True)
     else:
-        df.to_csv(filename)
+        df.to_csv(filename, index=False)
 
 def standardize_10msample(frac: float=0.01):
     sample_10m = '../data/10m_sample_common_passwords/10-million-combos.txt'
