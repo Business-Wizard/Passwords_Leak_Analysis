@@ -1,59 +1,72 @@
 import pandas as pd
-import string
-from zxcvbn import zxcvbn
 from dask.distributed import Client
 import dask.dataframe as dd
-# spark_available = True
+import string
+from zxcvbn import zxcvbn
 
-# try: 
-#     from pyspark import SparkContext as sc
-#     from pyspark.sql import SparkSession
-# except:
-#     print("Run from a Spark-capable computer for improved performance")
-#     spark_available = False
-
-# spark = SparkSession.builder.appName('Passwords').getOrCreate()
+try: 
+    from pyspark import SparkContext as sc
+    from pyspark.sql import SparkSession
+except:
+    spark_available = False
+try:
+    spark = SparkSession.builder.appName('Passwords').getOrCreate()
+except:
+    print("Errors with starting SparkSession")
 
 
 class DataSet():
     def __init__(self, filepath: str, delimiter: str, df_type: str='pandas'):
         self.filepath = filepath
         self.delimiter = delimiter
+        self.df_type = identify_dataframe_type(df_type)
 
+    def identify_dataframe_type(self, df_type):
         if df_type == 'dask':
             self.df_type = dd.core.DataFrame
-
-        elif df_type == 
-                self.dataframe =
         elif df_type == 'pandas':
             self.df_type = pd.core.frame.DataFrame
+        elif df_type == 'spark':
+            print('pyspark DataFrame not yet implemented')
+            self.df_type = pd.core.frame.DataFrame
+        return self.df_type
+        
+    def pass_class(password: str):
+        lower = set(string.ascii_lowercase)
+        upper = set(string.ascii_uppercase)
+        number = set(string.digits)
+        count_dict = {
+            'lower': 0,
+            'upper': 0,
+            'number': 0,
+            'symbol': 0
+        }
+
+        for char in password:
+            if char in upper:
+                count_dict['upper'] += 1
+            elif char in lower:
+                count_dict['lower'] += 1
+            elif char in number:
+                count_dict['number'] += 1
+            else:
+                count_dict['symbol'] += 1
+
+        return f"{count_dict['upper']},{count_dict['lower']},{count_dict['number']},{count_dict['symbol']}"
 
 
-def withClassCol(password: str):
-    lower = set(string.ascii_lowercase)
-    upper = set(string.ascii_uppercase)
-    number = set(string.digits)
-    symbol = set(string.punctuation)
-    count_dict = {
-        'lower': 0,
-        'upper': 0,
-        'number': 0,
-        'symbol': 0
-    }
 
-    for char in password:
-        if char in upper:
-            count_dict['upper'] += 1
-        elif char in lower:
-            count_dict['lower'] += 1
-        elif char in number:
-            count_dict['number'] += 1
-        else:
-            count_dict['symbol'] += 1
 
-    return f"{count_dict['upper']},{count_dict['lower']},{count_dict['number']},{count_dict['symbol']}"
 
-def withClassCols(df: pd.core.frame.DataFrame):
+'''
+class daskDataSet(DataSet):
+    def __init__(self):
+
+class pysparkDataSet(DataSet):
+    def __init__(self):
+'''
+
+def pass_class(df: pd.core.frame.DataFrame):
     class_split = df['class'].str.split(pat=',', expand=True, n=3)
     df['upper'] = class_split[0]
     df['lower'] = class_split[1]
@@ -119,7 +132,7 @@ if __name__ == '__main__':
     test_read = '../data/10m_sample_common_passwords/test_read.txt'
     test_write = '../data/test_write.txt'
 
-    df_10msample = standardize_10msample(frac=1)
+    # df_10msample = standardize_10msample(frac=1)
     # df_10msample.to_csv('../data/10m_sample_common_passwords/10m_normalized.csv', single_file=True)
     # print( df_10msample.head() )
 
