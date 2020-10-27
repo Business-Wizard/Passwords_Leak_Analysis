@@ -4,7 +4,19 @@ You can use the [editor on GitHub](https://github.com/Business-Wizard/password_s
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-<script src="./zxcvbn.js"></script>
+<script src="./zxcvbn.js">
+</script>
+
+<h1>demo</h1>
+
+    <input id="search-bar" type="text" size="50" />
+    <div id="search-results">
+    </div>
+
+    <div id="examples-container">
+    <h1 id="examples">examples</h1>
+    <div id="results">
+    </div>
 
 ### Markdown
 
