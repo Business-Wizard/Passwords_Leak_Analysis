@@ -43,29 +43,6 @@ def explore_df(df: pd.DataFrame):
     df.head(10), '\n',
     )
 
-def class_count(password: str):
-    lower = set(string.ascii_lowercase)
-    upper = set(string.ascii_uppercase)
-    number = set(string.digits)
-    symbol = set(string.punctuation)
-    count_dict = {
-        'lower': 0,
-        'upper': 0,
-        'number': 0,
-        'symbol': 0
-    }
-
-    for char in password:
-        if char in upper:
-            count_dict['upper'] += 1
-        elif char in lower:
-            count_dict['lower'] += 1
-        elif char in number:
-            count_dict['number'] += 1
-        else:
-            count_dict['symbol'] += 1
-
-    return f"{count_dict['upper']},{count_dict['lower']},{count_dict['number']},{count_dict['symbol']}"
 
 if __name__ == '__main__':
     pass
