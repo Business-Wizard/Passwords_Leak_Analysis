@@ -3,10 +3,13 @@ import pandas as pd
 import scipy.stats as stats
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
+plt.rcParams.update({'font.size': 14})
+
 blue_goog = '#4285F4'
 green_goog = '#0F9D58'
 red_goog = '#DB4437'
 yellow_goog = '#F4B400'
+
 
 def explore_df(df: pd.DataFrame):
     print(df.info(), '\n',
@@ -16,43 +19,46 @@ def explore_df(df: pd.DataFrame):
     )
 
 def plot_hist_length(df: pd.DataFrame):
-    fig752 = plt.figure(dpi=200, figsize=(11,6))
-    ax752 = fig752.add_axes([0.1, 0.1, 0.8, 0.8])
-    ax752.hist(df['length'], color=blue_goog)
-
-
-def plot_bar_score(df: pd.DataFrame):
-    fig712 = plt.figure(dpi=200, figsize=(11,6))
-    ax712 = fig712.add_axes([0.1, 0.1, 0.8, 0.8])
-    labels = [0,1,2,3,4]
-    counts = df.groupby('score').password.count()
-    # ax712.bar(x=labels, height=counts, color=blue_goog)
+    fig752, ax752 = plt.subplots(dpi=200, figsize=(11,6))
+    bins = range(18)
     
-    ax712.set_title('Distribution of Password Scores')
-    ax712.set_xlabel('Password Score')
-    ax712.set_ylabel('Count of Passwords')
-    # ax712.add_table()
-    celltext=[
-        ['Score', 0, 1, 2, 3, 4], 
-        ['Time to Crack', '1 minute'
-        , '10 minutes', '3 hours'
-        , '2 weeks', '1 month']
-    ]
-    plt.table(cellText=celltext, loc=0)
-    # plt.tight_layout()
+    ax752.hist(df.length, color=blue_goog, align='left'\
+        ,density=True, bins=bins, rwidth=0.8)
+    plt.xticks(ticks=range(0,18,2))
 
+    ax752.set_title('Distribution of Password Length')
+    ax752.set_xlabel('Password Length')
+    ax752.set_ylabel('Density of Length')
+    plt.tight_layout()
+
+def plot_hist_strength(df: pd.DataFrame):
+    fig712,ax712 = plt.subplots(dpi=200, figsize=(11,6))
+    bins = range(18)
+    counts = df.guesses_log
+    
+    ax712.hist(x=counts, align='left', density=True\
+        ,color=blue_goog, bins=bins, rwidth=0.8)
+    plt.xticks(ticks=range(0,18,2))
+    
+    ax712.set_title('Distribution of Password Strength')
+    ax712.set_xlabel('Password Strength(Log-Guesses)')
+    ax712.set_ylabel('Density of Strength')
+    plt.tight_layout()
 
 def plot_hist_chars(df: pd.DataFrame):
     cols_lst =['lower', 'upper', 'number', 'symbol']
 
     fig128, axes128 = plt.subplots(nrows=2, ncols=2 \
         ,dpi=200, figsize=(11,6) )
-    fig128.suptitle("Distribution of characters in passwords")
+    fig128.suptitle("Characters Used in Strong Passwords")
     
     for idx, ax in enumerate(axes128.flat ):
         col = cols_lst[idx]
-        ax.hist(df[col], color=blue_goog)
+        score_and_length = df[(df.score == 4) & (df.length >= 14)]
+        data = score_and_length[col]
+        ax.hist(data, color=blue_goog, density=True)
         ax.set_xlabel(f"{col} characters")
+    
     plt.tight_layout()
 
 def plot_guess_length(df):
@@ -63,24 +69,30 @@ def plot_guess_length(df):
     guess_length = axes476
     
     #* Scatter of passwords
-    guess_length.scatter(length, guesses, alpha=0.25, color=blue_goog)
+    guess_length.scatter(length, guesses, alpha=0.25\
+        ,color=blue_goog, marker='.')
     
     #* Trendline of random passwords
-    strong_trend_vals = np.linspace(start=5, stop=30, num=1000)
-    guess_length.plot(strong_trend_vals, strong_trend_vals, \
-        label="Strongest or Random", color=green_goog, alpha=0.8)
+    # strong_trend_vals = np.linspace(start=5, stop=30, num=1000)
+    # guess_length.plot(strong_trend_vals, strong_trend_vals, \
+    #     label="Strongest or Random", color=green_goog, alpha=0.8)
+    
+    #* Guess_log = 12
+    guess_length.axhline(y=12, xmin=0.0, xmax=1.0\
+        ,color=green_goog, label='(12):3 years'\
+        , alpha=0.6, linestyle='--')
     #* Guess_log = 10
     guess_length.axhline(y=10, xmin=0.0, xmax=1.0\
-        ,color=yellow_goog, label='2-weeks to crack'\
+        ,color=yellow_goog, label='(10):2 weeks'\
         , alpha=0.6, linestyle='--')
-    #* Guess_log = 8
+    #* Guess_log = 7
     guess_length.axhline(y=7, xmin=0.0, xmax=1.0\
-        ,color=red_goog, label='17-minutes to crack'\
+        ,color=red_goog, label='(7):17 minutes'\
         , alpha=0.6, linestyle='--')
     
     guess_length.set_title('Guesses v. Password Length')
     guess_length.set_xlabel('Password Length')
-    guess_length.set_ylabel('Guesses to Crack(Log)')
+    guess_length.set_ylabel('Guesses to Crack(Log-scale)')
     guess_length.set_xlim(2,30)
     guess_length.legend(loc=0)
     plt.tight_layout()
