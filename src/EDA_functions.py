@@ -20,12 +20,27 @@ def plot_hist_length(df: pd.DataFrame):
     ax752 = fig752.add_axes([0.1, 0.1, 0.8, 0.8])
     ax752.hist(df['length'], color=blue_goog)
 
-def plot_hist_score(df: pd.DataFrame):
+
+def plot_bar_score(df: pd.DataFrame):
     fig712 = plt.figure(dpi=200, figsize=(11,6))
     ax712 = fig712.add_axes([0.1, 0.1, 0.8, 0.8])
-    ax712.hist(df['score'], align='mid'\
-        ,color=blue_goog)
-    plt.xticks([0,1,2,3,4] )
+    labels = [0,1,2,3,4]
+    counts = df.groupby('score').password.count()
+    # ax712.bar(x=labels, height=counts, color=blue_goog)
+    
+    ax712.set_title('Distribution of Password Scores')
+    ax712.set_xlabel('Password Score')
+    ax712.set_ylabel('Count of Passwords')
+    # ax712.add_table()
+    celltext=[
+        ['Score', 0, 1, 2, 3, 4], 
+        ['Time to Crack', '1 minute'
+        , '10 minutes', '3 hours'
+        , '2 weeks', '1 month']
+    ]
+    plt.table(cellText=celltext, loc=0)
+    # plt.tight_layout()
+
 
 def plot_hist_chars(df: pd.DataFrame):
     cols_lst =['lower', 'upper', 'number', 'symbol']
@@ -69,7 +84,6 @@ def plot_guess_length(df):
     guess_length.set_xlim(2,30)
     guess_length.legend(loc=0)
     plt.tight_layout()
-    plt.show()
 
 
 

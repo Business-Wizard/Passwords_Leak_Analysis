@@ -16,7 +16,8 @@ rockyou_path = '../data/rockyou_leak/rockyou_copy.txt'
 
 if __name__ == '__main__':
     '''10m_sample'''
-    df_10msample = pd.read_csv(sample_10m).sample(frac=0.001)
+    df_10msample = pd.read_csv(sample_10m)\
+        .sample(frac=0.0001)
     # eda.explore_df(df_10msample)
     # pd.plotting.scatter_matrix(frame=df_10msample)
     
@@ -24,17 +25,19 @@ if __name__ == '__main__':
     # eda.plot_hist_length(df_10msample)
     # plt.show()
 
+
     '''show chart 2 Score'''
-    eda.plot_hist_score(df_10msample)
-    plt.show()
+    # eda.plot_bar_score(df_10msample)
+    # plt.show()
+
 
     '''show chart 3 password chars'''
     # eda.plot_hist_chars(df_10msample)
     # plt.show()
 
     '''show chart 4 - guess v. length'''
-    # eda.plot_guess_length(df_10msample)
-    # plt.show()
+    eda.plot_guess_length(df_10msample)
+    plt.show()
 
     '''rockyou EDA'''
     '''pwned EDA'''
