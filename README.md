@@ -47,9 +47,12 @@ Two other features highlighted during this analysis was an overall score from 0-
 2. The dataset was composed of 10-million unique usernames and passwords
 3. Features
    1. length
-   2. guesses_log10
-   3. score
-   4. character counts
+   2. character counts
+      - lowercase, numbers, uppercase, symbols
+   3. guesses_log10 
+      - estimate of password strength
+      - 
+   4. score
 
 
 ## Data Pipeline
@@ -80,15 +83,12 @@ Two other features highlighted during this analysis was an overall score from 0-
 
 ![Strength v. Length](images/guess_by_length.png)
 
-### 
-
 1. introduce guesses metric
    1. relate to time to crack
    2. note assumptions used
 2. introduce score metric
-   1. More intuitive & usable
+   1. More intuitive & usable for users while making a new account password
    2. table of times to crack
-
 
 | Guesses_log | Time to Crack| Score  |
 | ----:       | -----------: |:-----: |
@@ -123,26 +123,34 @@ Try out the Password Strength Tool \
 
 ### Password Examples
 
+![](images/password%20cartoon/Sungard-AS-Cartoon-Sept-2018-1024x768.jpg)
+
+
+>Note: some of the following passwords 
+
 ### Weak
 
-| Password  | Length|  Score |Guesses_log|
-| ---:      | :---: |  :---: |  ----:    |
-|13741374Zz |   10  |    2   |  6.47     |  
-|andrew2222 |   10  |    1   |  4.18     |  
-|republican |   10  |    0   |  2.99     |  
-|bigdaddy66 |   10  |    1   |  4.42     |  
-|bobpremium |   10  |    2   |  6.25     |  
-|London1765 |   10  |    1   |  5.98     |  
-|lalakers24 |   10  |    1   |  5.99     |  
-|orwell1984 |   10  |    1   |  5.88     |  
-|boomboomk0 |   10  |    1   |  5.72     |  
-|123456789m |   10  |    1   |  3.71     |
+| Password   | Length|  Score |Guesses_log|
+| ---:       | :---: |  :---: |  ----:    |
+|Auntlaurie1!|   12  |    3   |  8.40     |
+|011235813   |    9  |    1   |  4.54     |
+|13741374Zz  |   10  |    2   |  6.47     |  
+|andrew2222  |   10  |    1   |  4.18     |  
+|republican  |   10  |    0   |  2.99     |  
+|bigdaddy66  |   10  |    1   |  4.42     |  
+|bobpremium  |   10  |    2   |  6.25     |  
+|London1765  |   10  |    1   |  5.98     |  
+|lalakers24  |   10  |    1   |  5.99     |  
+|orwell1984  |   10  |    1   |  5.88     |  
+|boomboomk0  |   10  |    1   |  5.72     |  
+|123456789m  |   10  |    1   |  3.71     |
 ---
 ### Short
 
 | Password  | Length|  Score |Guesses_log|
 | ---:      | :---: |  :---: |  :----    |
 |**Tr0ub4dor&3**|11 |    4   |   11.00   |
+|A@%^b27C$d1|   11  |    4   |   11.00   |
 |iyswtric04 |   10  |    3   |   10.00   |
 |balamelnur |   10  |    3   |   10.00   |
 |varfalamei |   10  |    3   |   10.00   |
@@ -175,7 +183,8 @@ Try out the Password Strength Tool \
 | Password                       | Length|Score|Guesses_log|
 | ---:                           | :---: |:---:|  :----    |
 |**correcthorsebatterystaple**   |   24  |  4  |   14.4    |
-|**correct_horse_battery_staple**|27     |  4  |   20.3    |
+|**correct_horse_battery_staple**|   27  |  4  |   20.3    |
+|jagjagarmed13hundar             |   21  |  4  |   15.18   |
 |A9FADBE93A7C326FA97B            |   20  |  4  |   20.0    |
 |ldtnsczxbjlbyyflwfnm            |   20  |  4  |   20.0    |
 |ZeKqusrQ2BhicQbc4Y7I            |   20  |  4  |   20.0    |
@@ -185,6 +194,7 @@ Try out the Password Strength Tool \
 |t43ty34tt2t43t34t324            |   20  |  4  |   20.0    |
 |FPuw0ReC^CachyZe34q5            |   20  |  4  |   20.0    |
 
+[Password Strength Indicator](https://lowe.github.io/tryzxcvbn/) hosted on another website that you can use to improve your passwords.
 
 ## Next Steps - Next Features to add
 
