@@ -45,22 +45,31 @@ def plot_hist_strength(df: pd.DataFrame):
     ax712.set_ylabel('Density of Strength')
     plt.tight_layout()
 
-def plot_hist_chars(df: pd.DataFrame):
+def plot_hist_chars(df: pd.DataFrame, strength:int=4):
     cols_lst =['lower', 'upper', 'number', 'symbol']
-
+    
     fig128, axes128 = plt.subplots(nrows=2, ncols=2 \
         ,dpi=200, figsize=(11,6) )
-    fig128.suptitle("Characters Used in Strong Passwords")
-    
-    for idx, ax in enumerate(axes128.flat ):
+    fig128.suptitle(f"Characters in Strength:{strength}-{strength+2} Passwords")
+    for idx, ax in enumerate(axes128.flat):
         col = cols_lst[idx]
-        score_and_length = df[(df.score == 4) & (df.length >= 14)]
+        # score_and_length = df
+        score_and_length = df[(df.guesses_log <= strength+2) & (df.guesses_log >= strength)]
         data = score_and_length[col]
-        ax.hist(data, color=blue_goog, density=True)
+        args_lst = [
+            {'x':data, 'density':True, 'color':blue_goog\
+                ,'align':'left' ,'bins':range(0,28)},
+            {'x':data, 'density':True, 'color':blue_goog\
+                ,'align':'left' ,'bins':range(0,10)},
+            {'x':data, 'density':True, 'color':blue_goog\
+                ,'align':'left' ,'bins':range(0,20)},
+            {'x':data, 'density':True, 'color':blue_goog\
+                ,'align':'left' ,'bins':range(0,6)}
+        ]
+        ax.hist(**args_lst[idx])
         ax.set_xlabel(f"{col} characters")
+        plt.tight_layout()
     
-    plt.tight_layout()
-
 def plot_guess_length(df):
     fig476,axes476 = plt.subplots(ncols=1,nrows=1,\
         figsize=(11, 6), dpi=200)
