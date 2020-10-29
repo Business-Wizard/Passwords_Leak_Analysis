@@ -6,7 +6,9 @@ A notification that beems across your phone or chimes into your inbox. . .
 >Dear Customer, \
 we’re letting you know that we detected unusual activity on your account and are taking action to. . .
 
-“Was my information stolen from my bank, my employer, or that one website I love to read at night”? [^xkcd]  
+“Was my information stolen from my bank, my employer, or that one website I love to read at night”? <sup>[website](#website)</sup>
+
+
 How the bad-guys managed to steal or purchase your information, you’ll never know for sure.  But of all the ways you can better protect you and your family against cyber criminals, there is one advice you’ve heard the most.  And it’s also the one you’ve agreed with the most, told yourself you’d commit to it, and then promptly forgot about again. . .
 
 at least until the news of another data breach slides across your phone. [^breachnotice]
@@ -44,18 +46,39 @@ Two other features highlighted during this analysis was an overall score from 0-
 ## Data Description
 
 1. The dataset we'll be focusing on for this first project comes from the [10-million passwords](https://xato.net/today-i-am-releasing-ten-million-passwords-b6278bbe7495) dataset generously published by [Mark Burnett](https://medium.com/@m8urnett/about)[^Mark]
-2. The dataset was composed of 10-million unique usernames and passwords
-3. Features
-   1. length
-   2. character counts
-      - lowercase, numbers, uppercase, symbols
-   3. guesses_log10 
-      - estimate of password strength
-      - 
-   4. score
+2. The dataset was composed of 10-million unique passwords
+3. 
+
+
 
 
 ## Data Pipeline
+
+My dataset for this project had only the password plaintext available as a feature, so all analysis had to occur from creating new features.
+
+Features
+   1. length of password
+   2. count of character types used
+      - lowercase, numbers, uppercase, symbols
+   3. guesses_log10
+      - Estimate of password strength
+      - Estimated number of max guesses to identify a password
+   4. score
+      1. Simplified version of guesses
+      2. Useful as feedback during new-password creation
+      3. Promotes stronger passwords
+
+
+| Guesses_log | Time to Crack| Score  |
+| ----:       | -----------: |:-----: |
+|  14         |  <300 years  |        |
+|  13         |   30 years   |        |
+|  12         |    3 years   |        |
+|  11         |    4 months  |    4   |
+|  10         |    2 weeks   |    3   |
+|  8          |    3 hours   |    2   |
+|  7          |   10 minutes |    1   |
+|  6          |   <1 minutes |    0   |
 
 
 ## Data Exploration
@@ -83,26 +106,11 @@ Two other features highlighted during this analysis was an overall score from 0-
 
 ![Strength v. Length](images/guess_by_length.png)
 
-1. introduce guesses metric
-   1. relate to time to crack
-   2. note assumptions used
-2. introduce score metric
-   1. More intuitive & usable for users while making a new account password
-   2. table of times to crack
-
-| Guesses_log | Time to Crack| Score  |
-| ----:       | -----------: |:-----: |
-|  14         |  >100 years  |        |
-|  13         |   30 years   |        |
-|  12         |    3 years   |        |
-|  11         |    4 months  |    4   |
-|  10         |    2 weeks   |    3   |
-|  8          |    3 hours   |    2   |
-|  7          |   10 minutes |    1   |
-|  6          |   <1 minutes |    0   |
 
 ## Password Recommendations
 ----
+
+![company policy](images/password%20cartoon/Sungard-AS-Cartoon-Sept-2018-1024x768.jpg)
 
 Try out the Password Strength Tool \
 [(Not Yet Implemented)](https://business-wizard.github.io/password_strength_capstone01/)!
@@ -119,13 +127,10 @@ Try out the Password Strength Tool \
    - The length is only limited by the company requirements because the password manager will remember it for you
 3. While a few companies are using effective password strength indicators such as Dropbox's [zxcvbn](https://github.com/dropbox/zxcvbn), most of them are unreliable!
 
-![correct_horse_battery](images/password%20cartoon/password_strength.png)
 
 ### Password Examples
 
-![](images/password%20cartoon/Sungard-AS-Cartoon-Sept-2018-1024x768.jpg)
-
-
+![correct_horse_battery](images/password%20cartoon/password_strength.png)
 >Note: some of the following passwords 
 
 ### Weak
@@ -221,7 +226,7 @@ Try out the Password Strength Tool \
 ---
 #### Footnotes
 
-[^xkcd]: [xkcd](https://xkcd.com/2374/)
+<a name="xkcd"> website </a>: [xkcd](https://xkcd.com/2374/)
 
 [^breachnotice]: Months after the breach occured
 
