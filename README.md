@@ -241,7 +241,7 @@ While a few companies are using effective password strength indicators such as D
 ---
 #### Footnotes
 
-<a name="xkcd"> website </a>: [xkcd](https://xkcd.com/2374/)
+<a name="website"> xkcd </a>: [xkcd](https://xkcd.com/2374/)
 
 [^breachnotice]: Months after the breach occured
 
