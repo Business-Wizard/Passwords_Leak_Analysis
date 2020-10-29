@@ -43,13 +43,17 @@ Two other features highlighted during this analysis was an overall score from 0-
 
 ## Data Description
 
-1. source
-2. dataset size
+1. The dataset we'll be focusing on for this first project comes from the [10-million passwords](https://xato.net/today-i-am-releasing-ten-million-passwords-b6278bbe7495) dataset generously published by [Mark Burnett](https://medium.com/@m8urnett/about)[^Mark]
+2. The dataset was composed of 10-million unique usernames and passwords
 3. Features
    1. length
    2. guesses_log10
    3. score
    4. character counts
+
+
+## Data Pipeline
+
 
 ## Data Exploration
 
@@ -100,7 +104,8 @@ Two other features highlighted during this analysis was an overall score from 0-
 ## Password Recommendations
 ----
 
-Try out the Password Strength Tool [Not Yet Implemented](https://business-wizard.github.io/password_strength_capstone01/)!
+Try out the Password Strength Tool \
+[(Not Yet Implemented)](https://business-wizard.github.io/password_strength_capstone01/)!
 
 1. For less important, but commonly used passwords
    - Length > 20
@@ -111,6 +116,8 @@ Try out the Password Strength Tool [Not Yet Implemented](https://business-wizard
    - Length 18-30
    - Use random generator with all possible characters
    - Password manager to store your passwords
+   - The length is only limited by the company requirements because the password manager will remember it for you
+3. While a few companies are using effective password strength indicators such as Dropbox's [zxcvbn](https://github.com/dropbox/zxcvbn), most of them are unreliable!
 
 ![correct_horse_battery](images/password%20cartoon/password_strength.png)
 
@@ -134,14 +141,13 @@ Try out the Password Strength Tool [Not Yet Implemented](https://business-wizard
 ### Short
 
 | Password  | Length|  Score |Guesses_log|
-| ---:      | :---: |  :---: |  ----:    |
+| ---:      | :---: |  :---: |  :----    |
 |**Tr0ub4dor&3**|11 |    4   |   11.00   |
 |iyswtric04 |   10  |    3   |   10.00   |
 |balamelnur |   10  |    3   |   10.00   |
 |varfalamei |   10  |    3   |   10.00   |
 |0jNsyTDAhn |   10  |    3   |   10.00   |
 |ifEbevodEH |   10  |    3   |   10.00   |
-|UdAhobeZEP |   10  |    3   |   10.00   |
 |mortecouil |   10  |    3   |    9.56   |
 |greWEGWegw |   10  |    3   |    9.60   |
 |ni5mlnuken |   10  |    3   |    9.68   |
@@ -152,7 +158,7 @@ Try out the Password Strength Tool [Not Yet Implemented](https://business-wizard
 ### Long
 
 | Password            | Length|  Score |Guesses_log|
-| ---:                | :---: |  :---: |  ----:    |
+| ---:                | :---: |  :---: |  :----    |
 |qwertyuiopqwertyuiop |   20  |    0   |   1.67    |
 |qwertyuioppoiuytrewq |   20  |    1   |   4.18    |
 |1705secret1705secret |   20  |    2   |   6.38    |
@@ -167,7 +173,7 @@ Try out the Password Strength Tool [Not Yet Implemented](https://business-wizard
 ### Strong
 
 | Password                       | Length|Score|Guesses_log|
-| ---:                           | :---: |:---:|  ----:    |
+| ---:                           | :---: |:---:|  :----    |
 |**correcthorsebatterystaple**   |   24  |  4  |   14.4    |
 |**correct_horse_battery_staple**|27     |  4  |   20.3    |
 |A9FADBE93A7C326FA97B            |   20  |  4  |   20.0    |
@@ -177,15 +183,13 @@ Try out the Password Strength Tool [Not Yet Implemented](https://business-wizard
 |vitulya.poddubnaya83            |   20  |  4  |   20.0    |
 |1516producchuotlaanh            |   20  |  4  |   20.0    |
 |t43ty34tt2t43t34t324            |   20  |  4  |   20.0    |
-|ckflrfz_dfnf_ukfpehm            |   20  |  4  |   20.0    |
-|sujdhwe78y8wedgweuda            |   20  |  4  |   20.0    |
 |FPuw0ReC^CachyZe34q5            |   20  |  4  |   20.0    |
 
 
-## Next Steps
+## Next Steps - Next Features to add
 
 1. Add Password Strength Indicator to Project Website
-2. Add capability for pipeline to use multiple cores
+2. Finish capability for pipeline to use multiple cores
      - Dask, Rapids, Spark as options
 3. Standardize larger datasets for use in future research.
 4. Explore use of Machine Learning models such as LSTM and Markov based models.
@@ -216,6 +220,8 @@ Try out the Password Strength Tool [Not Yet Implemented](https://business-wizard
 [^linkedin_count]: 61 million passwords
 
 [^ibeenpwned]: [Aggregate Dataset of Password](https://haveibeenpwned.com/)
+
+[^Mark]: IT security analyst and author
 
 [^zxcvbn]: Made possible by the work of [Dan Wheeler](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation)
 
