@@ -103,7 +103,7 @@ Two other features highlighted during this analysis was an overall score from 0-
 Try out the Password Strength Tool [Not Yet Implemented](https://business-wizard.github.io/password_strength_capstone01/)!
 
 1. For less important, but commonly used passwords
-   - Length > 18
+   - Length > 20
    - Combine 4 or more **uncommon** words
    - for a memorable phrase that you can imagine
    - Add symbols and numbers between each word
@@ -112,6 +112,7 @@ Try out the Password Strength Tool [Not Yet Implemented](https://business-wizard
    - Use random generator with all possible characters
    - Password manager to store your passwords
 
+![correct_horse_battery](images/password%20cartoon/password_strength.png)
 
 ### Password Examples
 
@@ -134,16 +135,17 @@ Try out the Password Strength Tool [Not Yet Implemented](https://business-wizard
 
 | Password  | Length|  Score |Guesses_log|
 | ---:      | :---: |  :---: |  ----:    |
-|iyswtric04 |   10  |    3   |   10.0    |
-|balamelnur |   10  |    3   |   10.0    |
-|varfalamei |   10  |    3   |   10.0    |
-|0jNsyTDAhn |   10  |    3   |   10.0    |
-|ifEbevodEH |   10  |    3   |   10.0    |
-|UdAhobeZEP |   10  |    3   |   10.0    |
-|mortecouil |   10  |    3   |   9.56    |
-|greWEGWegw |   10  |    3   |   9.60    |
-|ni5mlnuken |   10  |    3   |   9.68    |
-|wildhack43 |   10  |    3   |   9.05    |
+|**Tr0ub4dor&3**|11 |    4   |   11.00   |
+|iyswtric04 |   10  |    3   |   10.00   |
+|balamelnur |   10  |    3   |   10.00   |
+|varfalamei |   10  |    3   |   10.00   |
+|0jNsyTDAhn |   10  |    3   |   10.00   |
+|ifEbevodEH |   10  |    3   |   10.00   |
+|UdAhobeZEP |   10  |    3   |   10.00   |
+|mortecouil |   10  |    3   |    9.56   |
+|greWEGWegw |   10  |    3   |    9.60   |
+|ni5mlnuken |   10  |    3   |    9.68   |
+|wildhack43 |   10  |    3   |    9.05   |
 
 ---
 
@@ -164,18 +166,20 @@ Try out the Password Strength Tool [Not Yet Implemented](https://business-wizard
 
 ### Strong
 
-| Password            | Length|  Score |Guesses_log|
-| ---:                | :---: |  :---: |  ----:    |
-|A9FADBE93A7C326FA97B |   20  |    4   |20.0       |
-|ldtnsczxbjlbyyflwfnm |   20  |    4   |20.0       |
-|ZeKqusrQ2BhicQbc4Y7I |   20  |    4   |20.0       |
-|y3fk86egsJ66Kz1MMu8s |   20  |    4   |20.0       |
-|vitulya.poddubnaya83 |   20  |    4   |20.0       |
-|1516producchuotlaanh |   20  |    4   |20.0       |
-|t43ty34tt2t43t34t324 |   20  |    4   |20.0       |
-|ckflrfz_dfnf_ukfpehm |   20  |    4   |20.0       |
-|sujdhwe78y8wedgweuda |   20  |    4   |20.0       |
-|FPuw0ReC^CachyZe34q5 |   20  |    4   |20.0       |
+| Password                       | Length|Score|Guesses_log|
+| ---:                           | :---: |:---:|  ----:    |
+|**correcthorsebatterystaple**   |   24  |  4  |   14.4    |
+|**correct_horse_battery_staple**|27     |  4  |   20.3    |
+|A9FADBE93A7C326FA97B            |   20  |  4  |   20.0    |
+|ldtnsczxbjlbyyflwfnm            |   20  |  4  |   20.0    |
+|ZeKqusrQ2BhicQbc4Y7I            |   20  |  4  |   20.0    |
+|y3fk86egsJ66Kz1MMu8s            |   20  |  4  |   20.0    |
+|vitulya.poddubnaya83            |   20  |  4  |   20.0    |
+|1516producchuotlaanh            |   20  |  4  |   20.0    |
+|t43ty34tt2t43t34t324            |   20  |  4  |   20.0    |
+|ckflrfz_dfnf_ukfpehm            |   20  |  4  |   20.0    |
+|sujdhwe78y8wedgweuda            |   20  |  4  |   20.0    |
+|FPuw0ReC^CachyZe34q5            |   20  |  4  |   20.0    |
 
 
 ## Next Steps
