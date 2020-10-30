@@ -6,12 +6,12 @@ A notification that flashes across your phone or pops into your inbox. . .
 >Dear Customer, \
 We’re letting you know that we have detected unusual activity on your account and are taking action to. . .
 
-“Was my information stolen from my bank, my employer, or could it be from that one website I love to read at night”? <sup>[website](#website)</sup>
+“Was my information stolen from my bank, my employer, or could it be from that one website I love to read at night”? <sup name="ft1">[1](#website)</sup>
 
 
 How the bad-guys managed to steal or purchase your information, you’ll never know for sure.  Out of all the ways you can better protect yourself and your family against cyber criminals, there is one piece of advice you’ve heard the most.  It’s also the one you’ve actually agreed with, told yourself you’d commit to, but then promptly decided to put it off again. . .
 
-Until the news of another data breach slides across your phone. [^breachnotice]
+Until the news of another data breach slides across your phone. <sup>[2](#breachnotice)</sup>
 
 ---
 
@@ -241,21 +241,13 @@ While a few companies are using effective password strength indicators such as D
 ---
 #### Footnotes
 
-<a name="website"> website </a>: [xkcd](https://xkcd.com/2374/)
-
-[^breachnotice]: Months after the breach occured
-
-[^cat_lady]: If you have less than four, read on
-
-<a name="pipeline> 
-
-[^linkedin_count]: 61 million passwords
-
-[^ibeenpwned]: [Aggregate Dataset of Password](https://haveibeenpwned.com/)
-
-[^Mark]: IT security analyst and author
-
-[^zxcvbn]: Made possible by the work of [Dan Wheeler](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation)
-
-[^giph_maker]: [giph maker](https://ezgif.com/maker)
+1. <a name="website" href="#ft1"> website </a>: [xkcd](https://xkcd.com/2374/) comics. [↩](#ft1)
+2. <a name="breachnotice"> breachnotice </a>: Months after the breach occured
+3. <a name=cat_lady href="#ft3"> cat lady </a>: If you have less than four, read on
+4. <a name="pipeline> 
+5. [^linkedin_count]: 61 million passwords
+6. [^ibeenpwned]: [Aggregate Dataset of Password](https://haveibeenpwned.com/)
+7. [^Mark]: IT security analyst and author
+8. [^zxcvbn]: Made possible by the work of [Dan Wheeler](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation)
+9. [^giph_maker]: [giph maker](https://ezgif.com/maker)
 
