@@ -52,12 +52,11 @@ if __name__ == '__main__':
 
 
     '''passwords table'''
-    length_10 = df_10msample.length==10
-    length_20 = df_10msample.length==20
-    strength_7 = df_10msample.guesses_log<7
-    strength_10 = df_10msample.guesses_log==10
-    strength_20 = df_10msample.guesses_log==20
-
+    # length_10 = df_10msample.length==10
+    # length_20 = df_10msample.length==20
+    # strength_7 = df_10msample.guesses_log<7
+    # strength_10 = df_10msample.guesses_log==10
+    # strength_20 = df_10msample.guesses_log==20
     # print(
     # df_10msample[(df_10msample.length==10)&(df_10msample.guesses_log<7)].head(5),
     # '\n',
@@ -67,10 +66,6 @@ if __name__ == '__main__':
     # '\n',
     # df_10msample[(df_10msample.length==20)&(df_10msample.guesses_log==20)].head(5)
     # )
-
-    print(
-    df_10msample[(df_10msample.length==10)&(df_10msample.guesses_log>=8)].head(10),
-    )
 
 
     print("completed")
