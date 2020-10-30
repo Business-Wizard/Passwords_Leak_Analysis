@@ -186,13 +186,14 @@ While a few companies are using effective password strength indicators such as D
 |orwell1984  |   10  |    1   |  5.88     |  
 |boomboomk0  |   10  |    1   |  5.72     |  
 |123456789m  |   10  |    1   |  3.71     |
+
 ---
 
 ### Short
 
 | Password      | Length|  Score |Guesses_log|
 | ---:          | :---: |  :---: |  :----    |
-|**Tr0ub4dor&3**|11     |    4   |   11.00   |
+|**Tr0ub4dor&3**|   11  |    4   |   11.00   |
 |**A@%^b27C$d1  |   11  |    4   |   11.00   |
 |iyswtric04     |   10  |    3   |   10.00   |
 |balamelnur     |   10  |    3   |   10.00   |
