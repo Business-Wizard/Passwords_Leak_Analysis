@@ -4,3 +4,6 @@
 *.zip
 *.txt
 ./images/10m_sample/
+src/thoughtbook.ipynb
+src/*.ipynb
+src/*.ipynb_checkpoints

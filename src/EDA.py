@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import EDA_functions as eda
 
-# sample_10m = '../data/10m_sample_common_passwords/10m_standard_complete2.csv'
 sample_10m = 'data/10m_sample_common_passwords/10m_standard_complete3.csv'
 pwned_path = '../data/have_i_been_pwned_v4/been_pwned_v4_hash_plain.txt'
 linkedin_path = '../data/linkedin_leak/linkedin_hash_plain.txt'
@@ -11,9 +10,11 @@ rockyou_path = '../data/rockyou_leak/rockyou_copy.txt'
 
 
 if __name__ == '__main__':
+    
     '''10m_sample'''
     df_10msample = pd.read_csv(sample_10m)\
-        .sample(frac=1)
+        .sample(frac=0.0001) 
+    #! most exploration can be done with very smaller sample fractions
     
     # null_bool = df_10msample.password.isnull()
     # print(null_bool.describe() )
@@ -37,7 +38,7 @@ if __name__ == '__main__':
 
     # plt.savefig('images/strengths.png')
 
-    '''show chart 3 password chars'''
+    '''show chart 3 password chars- loop used for giph animations'''
     # for strength in range(0,23,2):
         # eda.plot_hist_chars(df_10msample, strength)
         # plt.show()
@@ -67,13 +68,18 @@ if __name__ == '__main__':
     # df_10msample[(df_10msample.length==20)&(df_10msample.guesses_log==20)].head(5)
     # )
 
-
     print("completed")
 
 
     '''rockyou EDA'''
-    '''pwned EDA'''
-    # df_pwned[0] = df_pwned[0].str.split(pat=':',n=1)
-    # eda.explore_df(df_pwned)
+    #TODO Awaiting pipeline optimization for multi-core libraries
+    #TODO Identify bug of parsing double-quotes in sequences ""
+    
     '''linkedin EDA'''
+    #TODO Awaiting pipeline optimization for multi-core libraries
+
+    '''pwned EDA'''
+    #TODO Awaiting pipeline optimization for multi-core libraries
+    
+    
     

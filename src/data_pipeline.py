@@ -4,6 +4,7 @@ import dask.dataframe as dd
 import string
 from zxcvbn import zxcvbn
 
+spark_available = True
 try: 
     from pyspark import SparkContext as sc
     from pyspark.sql import SparkSession
@@ -22,6 +23,17 @@ class DataSet():
         self.df_type = identify_dataframe_type(df_type)
 
     def identify_dataframe_type(self, df_type):
+        """Sets the class' dataframe attribute based on the passed in argument
+        Args:
+            df_type (str): User-friendly method of indicating desired dataframes\
+                 and operations.
+        Usage:
+            A user seeking to analyze large datasets will want to pass in the \
+                dask or spark arguments to use the multi-processor libraries.
+        
+        Returns:
+            self.df_type (DataFrame): assigned to class' attribute
+        """
         if df_type == 'dask':
             self.df_type = dd.core.DataFrame
         elif df_type == 'pandas':
@@ -32,6 +44,14 @@ class DataSet():
         return self.df_type
         
     def pass_class(password: str):
+        """[summary]
+
+        Args:
+            password (str): [description]
+
+        Returns:
+            [type]: [description]
+        """
         lower = set(string.ascii_lowercase)
         upper = set(string.ascii_uppercase)
         number = set(string.digits)
