@@ -210,7 +210,7 @@ While a few companies are using effective password strength indicators such as D
 
 | Password            | Length|  Score |Guesses_log|
 | ---:                | :---: |  :---: |  :----    |
-|"1234qwer!@#$QWER"   |   17  |    3   |   9.55    |
+|1234qwer!@#$QWER     |   17  |    3   |   9.55    |
 |qwertyuiopqwertyuiop |   20  |    0   |   1.67    |
 |qwertyuioppoiuytrewq |   20  |    1   |   4.18    |
 |1705secret1705secret |   20  |    2   |   6.38    |
