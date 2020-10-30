@@ -193,7 +193,7 @@ While a few companies are using effective password strength indicators such as D
 | Password      | Length|  Score |Guesses_log|
 | ---:          | :---: |  :---: |  :----    |
 |**Tr0ub4dor&3**|11     |    4   |   11.00   |
-|**A@%^b27C$d1  |   11  |    4   |   11.00   |
+|**A@%^b27C$d1**|   11  |    4   |   11.00   |
 |iyswtric04     |   10  |    3   |   10.00   |
 |balamelnur     |   10  |    3   |   10.00   |
 |varfalamei     |   10  |    3   |   10.00   |
