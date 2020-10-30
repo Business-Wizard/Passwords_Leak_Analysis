@@ -12,6 +12,11 @@ yellow_goog = '#F4B400'
 
 
 def explore_df(df: pd.DataFrame):
+    """[summary]
+
+    Args:
+        df (pd.DataFrame): [dataframe to be ]
+    """
     print(df.info(), '\n',
     df.describe(), '\n',
     df.columns, '\n',

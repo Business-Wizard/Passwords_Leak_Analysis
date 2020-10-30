@@ -60,7 +60,16 @@ Features Created
 
 ## Assumptions for time estimates
 These times were calculated with the following assumptions:
-1. The attacker is
+
+1. The attacker is commencing an offline bruteforce attack
+   - He already has your password's hash from the company server
+   - The only thing slowing his time to crack it is:
+     - **Your password's strength!!**
+     - His computer's capability
+     - The company's use of hashing algorithm
+2. The company opted for the slower (more secure) hashing algorithm
+3. Resulting in 10K Guesses/Second
+   - A fast hash could result in about 16B Guesses/Second
 
 | Guesses_log | Time to Crack| Score  |
 | ----:       | -----------: |:-----: |
@@ -75,7 +84,7 @@ These times were calculated with the following assumptions:
 
 
 
-## Goals & Minimum Viable Product
+## Goals
 Using the features created, I sought to accomplish the following:
 
 1. Provide you examples of strong and weak passwords.
@@ -94,24 +103,36 @@ Using the features created, I sought to accomplish the following:
 
 ![lengths distribution](images/lengths.png)
 
-1. note min length = 4
-2. 
+1. Note: minimum password lengths were 4
+2. Significant clusters at 6 & 8
+   - Possible factors could be password policies, on account of the bimodal shape
+   - Or natural user preference for these sizes
 
 ### Figure 2 - strength bar chart
 
 ![strengths distribution](images/strengths.png)
-1. introduce concept of Strength (log-guesses)
+
+1. Strength (log-guesses) 
+   - The estimated max number of guesses needed to crack the password, presented in a log_10 form due to exponential scales involved
 2. Table: Strength - time to crack
 3. explain a pass length=10 can be strength<10
 
 ### Figure 3 - Characters used in passwords
 
 ![Characters Used](images/all_strength_by_2s.gif)
-[^giph_maker]
-\
-\
-\
-*******************************************Notes
+This graphic<sup name="ft9">[9](#giph_maker) </sup> was made to show the different characters used as password strength varies.
+Observations
+
+1. Length is the driving factor of password strength
+   - Lowercase letters are the most common
+   - Symbols are seldom used at all
+2. Weakest passwords tend to be:
+   1. Common words or names
+   2. Only numbers
+   3. Keyboard sequences (qwerty, zxcvbn)
+3. There is a significant use of Uppercase letters at strength=13
+   - Possible factors could be common password policies requiring 12+ characters and the use of an uppercase.
+   - And users settling for the bare minimum?
 
 ### Figure 4 - Guesses v length
 
@@ -125,13 +146,13 @@ Using the features created, I sought to accomplish the following:
 
 
 ## Password Recommendations
+
 ----
 
 ![company policy](images/password%20cartoon/Sungard-AS-Cartoon-Sept-2018-1024x768.jpg)
 
-Try out the Password Strength Tool \
+Try out the Password Strength Indicator \
 [(Not Yet Implemented)](https://business-wizard.github.io/password_strength_capstone01/)!
-
 
 While a few companies are using effective password strength indicators such as Dropbox's [zxcvbn](https://github.com/dropbox/zxcvbn), most of them are unreliable!
 
@@ -150,12 +171,13 @@ While a few companies are using effective password strength indicators such as D
 ### Password Examples
 
 ![correct_horse_battery](images/password%20cartoon/password_strength.png)
->Note: some of the following passwords are not part of the dataset, as they were sourced by audience members.
+>Note: some of the following passwords are not part of the dataset, as they were provided by audience members.
 
 ### Weak
 
 | Password   | Length|  Score |Guesses_log|
 | ---:       | :---: |  :---: |  ----:    |
+|DogVito123  |   11  |    3   |  8.41     |
 |Auntlaurie1!|   12  |    3   |  8.40     |
 |011235813   |    9  |    1   |  4.54     |
 |13741374Zz  |   10  |    2   |  6.47     |  
@@ -171,19 +193,19 @@ While a few companies are using effective password strength indicators such as D
 ---
 ### Short
 
-| Password  | Length|  Score |Guesses_log|
-| ---:      | :---: |  :---: |  :----    |
-|**Tr0ub4dor&3**|11 |    4   |   11.00   |
-|A@%^b27C$d1|   11  |    4   |   11.00   |
-|iyswtric04 |   10  |    3   |   10.00   |
-|balamelnur |   10  |    3   |   10.00   |
-|varfalamei |   10  |    3   |   10.00   |
-|0jNsyTDAhn |   10  |    3   |   10.00   |
-|ifEbevodEH |   10  |    3   |   10.00   |
-|mortecouil |   10  |    3   |    9.56   |
-|greWEGWegw |   10  |    3   |    9.60   |
-|ni5mlnuken |   10  |    3   |    9.68   |
-|wildhack43 |   10  |    3   |    9.05   |
+| Password      | Length|  Score |Guesses_log|
+| ---:          | :---: |  :---: |  :----    |
+|**Tr0ub4dor&3**|11     |    4   |   11.00   |
+|**A@%^b27C$d1  |   11  |    4   |   11.00   |
+|iyswtric04     |   10  |    3   |   10.00   |
+|balamelnur     |   10  |    3   |   10.00   |
+|varfalamei     |   10  |    3   |   10.00   |
+|0jNsyTDAhn     |   10  |    3   |   10.00   |
+|ifEbevodEH     |   10  |    3   |   10.00   |
+|mortecouil     |   10  |    3   |    9.56   |
+|greWEGWegw     |   10  |    3   |    9.60   |
+|ni5mlnuken     |   10  |    3   |    9.68   |
+|wildhack43     |   10  |    3   |    9.05   |
 
 ---
 
@@ -191,6 +213,7 @@ While a few companies are using effective password strength indicators such as D
 
 | Password            | Length|  Score |Guesses_log|
 | ---:                | :---: |  :---: |  :----    |
+|"1234qwer!@#$QWER"   |   17  |    3   |   9.55    |
 |qwertyuiopqwertyuiop |   20  |    0   |   1.67    |
 |qwertyuioppoiuytrewq |   20  |    1   |   4.18    |
 |1705secret1705secret |   20  |    2   |   6.38    |
@@ -224,18 +247,18 @@ While a few companies are using effective password strength indicators such as D
 
 ## Future Features to add
 
-1. Password Strength Indicator to Project Website
-2. Finish capability for pipeline to use multiple cores
+1. Implement Password Strength Indicator (.js) on Project Website
+2. Finish capability for data processing pipeline to use multiple processors
      - Dask, Rapids, Spark as options
 3. Standardize larger datasets for use in future research.
-4. Explore use of Machine Learning models such as Long-Short Term Memory(LSTM) and Markov-based models.
+4. Explore use of Machine Learning models such as Long Short-Term Memory (LSTM) Recurrent Neural Networks (RNN) and Markov-based models.
 
 ---
 
 ## Motivating Research & Extended Resources
 
 1. [How Hackers Crack Passwords](https://www.codeproject.com/Articles/1158324/How-Hackers-Crack-Passwords-Part)
-2. [A Machine Learning Approach to Predicting Passwords -Christoffer Olsen](http://www2.imm.dtu.dk/pubdb/edoc/imm7088.pdf)
+2. [A Machine Learning Approach to Predicting Passwords](http://www2.imm.dtu.dk/pubdb/edoc/imm7088.pdf) -Christoffer Olsen
 3. [PassGAN: A Deep Learning Approach for Password Guessing](https://arxiv.org/pdf/1709.00440.pdf)
 4. [hashcat](https://hashcat.net/hashcat/)
 5. [hashcat setup guide for Ubuntu](https://www.alexanderjsingleton.com/infosexy-how-to-use-hashcat-to-crack-passwords-in-ubuntu-18-04/)
@@ -247,11 +270,11 @@ While a few companies are using effective password strength indicators such as D
 - <a name="website" href="#ft1"> 1 </a>:[↩](#ft1) Comics by [xkcd](https://xkcd.com/2374/)
 - <a name="breachnotice" href="#ft2"> 2 </a>:[↩](#ft1) Months after the breach occured
 - <a name=cat_lady href="#ft3"> 3 </a>:[↩](#ft1) If you have less than four, read on
-- <a name=linkedin_count href="#ft5"> 5 </a>:[↩](#ft1) 61 million passwords 
-- <a name=ibeenpwned href="#ft6"> 6 </a>:[↩](#ft1) haveibeenpwned [Aggregate Dataset of Passwords](https://haveibeenpwned.com/) 
+- <a name=linkedin_count href="#ft5"> 5 </a>:[↩](#ft1) 61 million passwords
+- <a name=ibeenpwned href="#ft6"> 6 </a>:[↩](#ft1) haveibeenpwned [Aggregate Dataset of Passwords](https://haveibeenpwned.com/)
 - <a name=Mark href="#ft7"> 7 </a>:[↩](#ft1) IT security analyst and author [Bio](https://medium.com/@m8urnett/about) 
-- <a name=zxcvbn href="#ft8"> 8. </a>:[↩](#ft1) Made possible by the work of [Dan Wheeler](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation) 
-- <a name=giph_maker href="#ft9"> 9 </a>:[↩](#ft1) [giph maker](https://ezgif.com/maker)-tool 
+- <a name=zxcvbn href="#ft8"> 8 </a>:[↩](#ft1) Made possible by the work of [Dan Wheeler](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation)
+- <a name=giph_maker href="#ft9"> 9 </a>:[↩](#ft1) Tool - [giph maker](https://ezgif.com/maker)
 
 
 
