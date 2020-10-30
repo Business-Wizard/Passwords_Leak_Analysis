@@ -8,7 +8,6 @@ We’re letting you know that we have detected unusual activity on your account 
 
 “Was my information stolen from my bank, my employer, or could it be from that one website I love to read at night”? <sup name="ft1">[1](#website)</sup>
 
-
 How the bad-guys managed to steal or purchase your information, you’ll never know for sure.  Out of all the ways you can better protect yourself and your family against cyber criminals, there is one piece of advice you’ve heard the most.  It’s also the one you’ve actually agreed with, told yourself you’d commit to, but then promptly decided to put it off again. . .
 
 Until the news of another data breach slides across your phone. <sup>[2](#breachnotice)</sup>
@@ -19,8 +18,7 @@ Until the news of another data breach slides across your phone. <sup>[2](#breach
 
 ---
 
-#### How Does A Password Get Cracked?
-
+### How Does A Password Get Cracked?
 
 When you create a password for an account, the majority of service companies are now immediately use a hashing algorithm to turn your plaintext password into a "hash". This hash is unique to your password and cannot be undone to identify your password if it is stolen or leaked from a database. This sounds like it should be a secure solution, but when a hacker receives stolen password hashes from a company, they have already determined which hashing algorithm that company used. The hacker then runs billions of password guesses through the same hashing algorithm to see if any hashes are a match - effectively identifying what the original passwords were.
 
@@ -34,8 +32,6 @@ So what does it take to make a strong password anyway?
 - Or perhaps the cat ladies of the world have the true secret to fighting cyber criminals after all - just make a password with all of the names of your cats :smiley_cat: :smiley_cat:.<sup name="ft3">[3](#cat_lady)</sup>
 
 ---
-
-
 
 ## Data Pipeline
 
@@ -59,17 +55,18 @@ Features Created
       3. Promotes stronger passwords
 
 ## Assumptions for time estimates
+
 These times were calculated with the following assumptions:
 
 1. The attacker is commencing an offline bruteforce attack
    - He already has your password's hash from the company server
    - The only thing slowing his time to crack it is:
-     - **Your password's strength!!**
+     - **Your password's strength!**
      - His computer's capability
-     - The company's use of hashing algorithm
+     - The company's use of hashing algorithm (fast/slow)
 2. The company opted for the slower (more secure) hashing algorithm
 3. Resulting in 10K Guesses/Second
-   - A fast hash could result in about 16B Guesses/Second
+   - A fast hash would result in about 16B Guesses/Second
 
 | Guesses_log | Time to Crack| Score  |
 | ----:       | -----------: |:-----: |
@@ -82,16 +79,15 @@ These times were calculated with the following assumptions:
 |  7          |   10 minutes |    1   |
 |  6          |   <1 minute  |    0   |
 
-
-
 ## Goals
+
 Using the features created, I sought to accomplish the following:
 
 1. Provide you examples of strong and weak passwords.
 2. Help you understand how to make a strong password
 3. Motivate you to never again have ~~low-hanging fruit~~ weak passwords for a hacker to profit from.
-   
-**And the Technical Stuff**
+
+### And the Technical Stuff
 
 4. Create a novel data pipeline to prepare the datasets to a common standard.
 5. Practice methods of data manipulation that scale well with datasets in excess of 3-25GB (e.g. Dask, PySpark)
@@ -114,8 +110,10 @@ Using the features created, I sought to accomplish the following:
 
 1. Strength (log-guesses) 
    - The estimated max number of guesses needed to crack the password, presented in a log_10 form due to exponential scales involved
-2. Table: Strength - time to crack
-3. explain a pass length=10 can be strength<10
+2. Strength distributions will always be lower than lengths
+3. The max strength is dicatated by the password length
+4. Actual strength is a factor of the password complexity
+   - Common words and sequences of numbers/keys result in greatly reduced strength
 
 ### Figure 3 - Characters used in passwords
 
@@ -126,7 +124,7 @@ Observations
 1. Length is the driving factor of password strength
    - Lowercase letters are the most common
    - Symbols are seldom used at all
-2. Weakest passwords tend to be:
+2. Weaker passwords tend to have:
    1. Common words or names
    2. Only numbers
    3. Keyboard sequences (qwerty, zxcvbn)
@@ -140,14 +138,13 @@ Observations
 
 1. Length is the most effective way to increase Password Strength
 2. Followed by the complexity
-   - What characters are used
-   - Use of common words and names vs. random letters
-3. Maximum strength potential is determined by length, but the minimum strength is determined by the randomness of the characters used in your password
-
+   - Use numbers/symbols throughout
+   - random letters vs. Use of common words|names
+   - "L33T" character replacement is not effective
 
 ## Password Recommendations
 
-----
+---
 
 ![company policy](images/password%20cartoon/Sungard-AS-Cartoon-Sept-2018-1024x768.jpg)
 
@@ -166,7 +163,6 @@ While a few companies are using effective password strength indicators such as D
    - Use random generator with all possible characters
    - Use a password manager to store your passwords <sep>[lastpass](#lastpass)</sep>
      - The length is only limited by the company requirements because the password manager will remember it for you
-
 
 ### Password Examples
 
@@ -191,6 +187,7 @@ While a few companies are using effective password strength indicators such as D
 |boomboomk0  |   10  |    1   |  5.72     |  
 |123456789m  |   10  |    1   |  3.71     |
 ---
+
 ### Short
 
 | Password      | Length|  Score |Guesses_log|
@@ -265,6 +262,7 @@ While a few companies are using effective password strength indicators such as D
 6. [Comparison of Dictionary Attack Rulesets](https://notsosecure.com/one-rule-to-rule-them-all/)
 
 ---
+
 #### Footnotes
 
 - <a name="website" href="#ft1"> 1 </a>:[↩](#ft1) Comics by [xkcd](https://xkcd.com/2374/)
@@ -275,12 +273,3 @@ While a few companies are using effective password strength indicators such as D
 - <a name=Mark href="#ft7"> 7 </a>:[↩](#ft1) IT security analyst and author [Bio](https://medium.com/@m8urnett/about) 
 - <a name=zxcvbn href="#ft8"> 8 </a>:[↩](#ft1) Made possible by the work of [Dan Wheeler](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation)
 - <a name=giph_maker href="#ft9"> 9 </a>:[↩](#ft1) Tool - [giph maker](https://ezgif.com/maker)
-
-
-
-
-
-
-
-
-
