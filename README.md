@@ -24,14 +24,14 @@ Until the news of another data breach slides across your phone. <sup>[2](#breach
 
 When you create a password for an account, the majority of service companies are now immediately use a hashing algorithm to turn your plaintext password into a "hash". This hash is unique to your password and cannot be undone to identify your password if it is stolen or leaked from a database. This sounds like it should be a secure solution, but when a hacker receives stolen password hashes from a company, they have already determined which hashing algorithm that company used. The hacker then runs billions of password guesses through the same hashing algorithm to see if any hashes are a match - effectively identifying what the original passwords were.
 
-*************************Image
+![hashes](images/hashAlgorithm.png)
 
 ---
 So what does it take to make a strong password anyway?
 
 - Should you include that specific date that you haven’t told anyone?
 - Or the amount of fancy characters you can find on your keyboard?
-- Or perhaps the cat ladies of the world have the true secret to fighting cyber criminals after all - just make a password with all of the names of your cats :smiley_cat:.[^cat_lady]
+- Or perhaps the cat ladies of the world have the true secret to fighting cyber criminals after all - just make a password with all of the names of your cats :smiley_cat: :smiley_cat:.<sup name="ft3">[3](#cat_lady)</sup>
 
 ---
 
@@ -41,11 +41,12 @@ So what does it take to make a strong password anyway?
 
 I have analyzed a dataset of ten million unique passwords in an attempt to answer the questions above.
 \
-The dataset used for this first project comes from the [10-million passwords](https://xato.net/today-i-am-releasing-ten-million-passwords-b6278bbe7495) dataset generously published by [Mark Burnett](https://medium.com/@m8urnett/about)[^Mark]
+The dataset used for this first project comes from the [10-million passwords](https://xato.net/today-i-am-releasing-ten-million-passwords-b6278bbe7495) dataset generously published by Mark Burnett <sup name="ft6">[6](#mark)</sup>
 
-This dataset had only the password plaintext available as a feature, so all analysis had to occur from creating new features, the code for which has been provided. <sep>[pipeline](#pipeline)</sep>
+This dataset had only the password plaintext available as a feature, so all analysis had to occur from creating new features, the code for which has been provided.
 
 Features Created
+
    1. length of password
    2. count of character types used
       - lowercase, numbers, uppercase, symbols
@@ -58,7 +59,8 @@ Features Created
       3. Promotes stronger passwords
 
 ## Assumptions for time estimates
-*********************************NOTE HERE
+These times were calculated with the following assumptions:
+1. The attacker is
 
 | Guesses_log | Time to Crack| Score  |
 | ----:       | -----------: |:-----: |
@@ -232,22 +234,30 @@ While a few companies are using effective password strength indicators such as D
 
 ## Motivating Research & Extended Resources
 
-1. [A Machine Learning Approach to Predicting Passwords -Christoffer Olsen](http://www2.imm.dtu.dk/pubdb/edoc/imm7088.pdf)
-2. [PassGAN: A Deep Learning Approach for Password Guessing](https://arxiv.org/pdf/1709.00440.pdf)
-3. [hashcat](https://hashcat.net/hashcat/)
-4. [hashcat setup guide for Ubuntu](https://www.alexanderjsingleton.com/infosexy-how-to-use-hashcat-to-crack-passwords-in-ubuntu-18-04/)
-5. [Comparison of Dictionary Attack Rulesets](https://notsosecure.com/one-rule-to-rule-them-all/)
+1. [How Hackers Crack Passwords](https://www.codeproject.com/Articles/1158324/How-Hackers-Crack-Passwords-Part)
+2. [A Machine Learning Approach to Predicting Passwords -Christoffer Olsen](http://www2.imm.dtu.dk/pubdb/edoc/imm7088.pdf)
+3. [PassGAN: A Deep Learning Approach for Password Guessing](https://arxiv.org/pdf/1709.00440.pdf)
+4. [hashcat](https://hashcat.net/hashcat/)
+5. [hashcat setup guide for Ubuntu](https://www.alexanderjsingleton.com/infosexy-how-to-use-hashcat-to-crack-passwords-in-ubuntu-18-04/)
+6. [Comparison of Dictionary Attack Rulesets](https://notsosecure.com/one-rule-to-rule-them-all/)
 
 ---
 #### Footnotes
 
-1. <a name="website" href="#ft1"> website </a>: [xkcd](https://xkcd.com/2374/) comics. [↩](#ft1)
-2. <a name="breachnotice"> breachnotice </a>: Months after the breach occured
-3. <a name=cat_lady href="#ft3"> cat lady </a>: If you have less than four, read on
-4. <a name="pipeline> 
-5. [^linkedin_count]: 61 million passwords
-6. [^ibeenpwned]: [Aggregate Dataset of Password](https://haveibeenpwned.com/)
-7. [^Mark]: IT security analyst and author
-8. [^zxcvbn]: Made possible by the work of [Dan Wheeler](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation)
-9. [^giph_maker]: [giph maker](https://ezgif.com/maker)
+- <a name="website" href="#ft1"> 1 </a>:[↩](#ft1) Comics by [xkcd](https://xkcd.com/2374/)
+- <a name="breachnotice" href="#ft2"> 2 </a>:[↩](#ft1) Months after the breach occured
+- <a name=cat_lady href="#ft3"> 3 </a>:[↩](#ft1) If you have less than four, read on
+- <a name=linkedin_count href="#ft5"> 5 </a>:[↩](#ft1) 61 million passwords 
+- <a name=ibeenpwned href="#ft6"> 6 </a>:[↩](#ft1) haveibeenpwned [Aggregate Dataset of Passwords](https://haveibeenpwned.com/) 
+- <a name=Mark href="#ft7"> 7 </a>:[↩](#ft1) IT security analyst and author [Bio](https://medium.com/@m8urnett/about) 
+- <a name=zxcvbn href="#ft8"> 8. </a>:[↩](#ft1) Made possible by the work of [Dan Wheeler](https://dropbox.tech/security/zxcvbn-realistic-password-strength-estimation) 
+- <a name=giph_maker href="#ft9"> 9 </a>:[↩](#ft1) [giph maker](https://ezgif.com/maker)-tool 
+
+
+
+
+
+
+
+
 
