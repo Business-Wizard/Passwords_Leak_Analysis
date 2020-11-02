@@ -161,7 +161,7 @@ While a few companies are using effective password strength indicators such as D
 2. Important accounts you can't afford to have stolen
    - Length 18-30
    - Use random generator with all possible characters
-   - Use a password manager to store your passwords <sep>[lastpass](#lastpass)</sep>
+   - Use a password manager to store your passwords <sep>[lastpass](https://www.lastpass.com/)</sep>
      - The length is only limited by the company requirements because the password manager will remember it for you
 
 ### Password Examples
