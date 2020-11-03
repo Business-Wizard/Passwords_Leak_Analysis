@@ -148,8 +148,7 @@ Observations
 
 ![company policy](images/password%20cartoon/Sungard-AS-Cartoon-Sept-2018-1024x768.jpg)
 
-Try out the Password Strength Indicator \
-[(Not Yet Implemented)](https://business-wizard.github.io/password_strength_capstone01/)!
+Try out the [Password Strength Indicator](https://lowe.github.io/tryzxcvbn/)!
 
 While a few companies are using effective password strength indicators such as Dropbox's [zxcvbn](https://github.com/dropbox/zxcvbn), most of them are unreliable!
 
@@ -238,8 +237,7 @@ While a few companies are using effective password strength indicators such as D
 |t43ty34tt2t43t34t324            |   20  |  4  |   20.0    |
 |FPuw0ReC^CachyZe34q5            |   20  |  4  |   20.0    |
 
-[Password Strength Indicator](https://lowe.github.io/tryzxcvbn/) hosted on another website that you can use to improve your passwords.
-
+Try out the [Password Strength Indicator](https://lowe.github.io/tryzxcvbn/)!
 ---
 
 ## Future Features to add
