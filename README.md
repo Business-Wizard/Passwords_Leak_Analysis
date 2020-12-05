@@ -1,5 +1,7 @@
 # Context
 
+Author: Joseph Wilson
+
 At some point in all of our lives we've received one of the following -
 A notification that flashes across your phone or pops into your inbox. . .
 
