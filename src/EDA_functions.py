@@ -82,7 +82,7 @@ def plot_hist_chars(df: pd.DataFrame, strength:int=8):
     """
     #TODO Create version of function with .savefig method to ease generating giph animations.
     cols_lst =['lower', 'upper', 'number', 'symbol']
-    
+
     fig128, axes128 = plt.subplots(nrows=2, ncols=2 \
         ,dpi=200, figsize=(11,6) )
     fig128.suptitle(f"Characters in Strength:{strength}-{strength+2} Passwords")
@@ -92,15 +92,36 @@ def plot_hist_chars(df: pd.DataFrame, strength:int=8):
         score_and_length = df[(df.guesses_log <= strength+2) & (df.guesses_log >= strength)]
         data = score_and_length[col]
         args_lst = [
-            {'x':data, 'density':True, 'color':blue_goog\
-                ,'align':'left' ,'bins':range(0,28)},
-            {'x':data, 'density':True, 'color':blue_goog\
-                ,'align':'left' ,'bins':range(0,10)},
-            {'x':data, 'density':True, 'color':blue_goog\
-                ,'align':'left' ,'bins':range(0,20)},
-            {'x':data, 'density':True, 'color':blue_goog\
-                ,'align':'left' ,'bins':range(0,6)}
+            {
+                'x': data,
+                'density': True,
+                'color': blue_goog,
+                'align': 'left',
+                'bins': range(28),
+            },
+            {
+                'x': data,
+                'density': True,
+                'color': blue_goog,
+                'align': 'left',
+                'bins': range(10),
+            },
+            {
+                'x': data,
+                'density': True,
+                'color': blue_goog,
+                'align': 'left',
+                'bins': range(20),
+            },
+            {
+                'x': data,
+                'density': True,
+                'color': blue_goog,
+                'align': 'left',
+                'bins': range(6),
+            },
         ]
+
         ax.hist(**args_lst[idx])
         ax.set_xlabel(f"{col} characters")
         plt.tight_layout()
@@ -153,8 +174,7 @@ def plot_guess_length(df):
     plt.tight_layout()
 
 
-if __name__ == '__main__':
-    pass
+pass
 
 
 
